@@ -1,0 +1,90 @@
+{
+    "name": "react-game-store-200",
+    "description": "Sfeir School Practical Excercice",
+    "authors": [
+        "Joris Moine <moine.j@sfeir.com>",
+        "Aurélien Dupays Dexemple <dupaysdexemple.a@sfeir.com>"
+    ],
+    "license": "MIT",
+    "version": "1.0.1",
+    "private": true,
+    "homepage": "https://github.com/SugarDarius/react-game-store-200.git",
+    "repository": {
+        "type": "git",
+        "url": "https://github.com/SugarDarius/react-game-store-200.git"
+    },
+    "engines": {
+        "node": ">=10.x",
+        "npm": ">=6.x"
+    },
+    "scripts": {
+        "develop": "npm run develop:client:build && npm run develop:api:serve && npm run develop:server:serve",
+        "develop:client:build": "better-npm-run develop:client:build",
+        "develop:api:serve": "better-npm-run develop:api:serve",
+        "develop:server:serve": "better-npm-run develop:server:serve"
+    },
+    "betterScripts": {
+        "develop:server:serve": {
+            "description": "Running server",
+            "command": "babel-node ./server/index.js",
+            "env": {
+                "NODE_PATH": "./server",
+                "NODE_ENV": "development"
+            }
+        },
+        "develop:api:serve": {
+            "description": "Running api",
+            "command": "babel-node ./api/index.js",
+            "env": {
+                "NODE_PATH": "./api",
+                "NODE_ENV": "development"
+            }
+        },
+        "develop:client:build": {
+            "description": "Building client with hot reloading",
+            "command": "babel-node ./webpack/client.dev.server.js",
+            "env": {
+                "NODE_PATH": "./webpack",
+                "NODE_ENV": "development"
+            }
+        }
+    },
+    "dependencies": {
+        "@babel/core": "^7.2.2",
+        "@babel/node": "^7.2.2",
+        "@babel/plugin-transform-runtime": "^7.2.0",
+        "@babel/preset-env": "^7.3.1",
+        "@babel/preset-react": "^7.0.0",
+        "@babel/runtime": "^7.3.1",
+        "autoprefixer": "^9.4.7",
+        "better-npm-run": "^0.1.1",
+        "body-parser": "^1.18.3",
+        "chalk": "^2.4.2",
+        "classnames": "^2.2.6",
+        "css-loader": "^2.1.0",
+        "dotenv": "^6.2.0",
+        "express": "^4.16.4",
+        "file-loader": "^3.0.1",
+        "moment": "^2.24.0",
+        "morgan": "^1.9.1",
+        "node-sass": "^4.11.0",
+        "postcss-flexbugs-fixes": "^4.1.0",
+        "postcss-loader": "^3.0.0",
+        "react": "^16.8.1",
+        "react-dom": "^16.8.1",
+        "react-hot-loader": "^4.6.5",
+        "react-redux": "^6.0.0",
+        "react-router": "^4.3.1",
+        "react-router-dom": "^4.3.1",
+        "redux": "^4.0.1",
+        "redux-logger": "^3.0.6",
+        "sass-loader": "^7.1.0",
+        "style-loader": "^0.23.1",
+        "uuid": "^3.3.2",
+        "webpack": "^4.29.3",
+        "webpack-cli": "^3.2.3",
+        "webpack-dev-middleware": "^3.5.2",
+        "webpack-hot-middleware": "^2.24.3",
+        "webpack-node-externals": "^1.7.2"
+    }
+}

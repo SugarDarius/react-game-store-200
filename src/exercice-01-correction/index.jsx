@@ -4,6 +4,9 @@
 *   author: Aurélien Dupays Dexemple
 */
 
+import '../shared/stylesheets/normalize.css';
+import './stylesheet.scss';
+
 import React from 'react';
 
 export const Exercice01CorrectionApp = () => (

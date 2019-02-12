@@ -1,0 +1,86 @@
+{
+    "data": [
+        {
+            "_id": "9af3c847-4c1a-471a-a7eb-b768cb8887d5",
+            "title": "Shadow of the Tomb Raider",
+            "description": "Shadow of the Tomb Raider is an action-adventure video game developed by Eidos Montréal in conjunction with Crystal Dynamics and published by Square Enix. It continues the narrative from the 2015 game Rise of the Tomb Raider and is the twelfth mainline entry in the Tomb Raider series.",
+            "platforms": [
+                "Playstation 4",
+                "Xbox One",
+                "Microsoft Windows"
+            ],
+            "genders": [
+                "Action-Adventure Game"
+            ],
+            "price": 40.99,
+            "rating": 4.5,
+            "developers": [
+                "Crystal Dynamics",
+                "Eidos Montréal"
+            ],
+            "releaseDate": "2018-09-13T22:00:00.000Z",
+            "thumbnail": "http://localhost:5010/media/thumb-shadow-of-the-tomb-raider.jpg",
+            "updatedAt": "2019-02-12T20:33:22.433Z"
+        },
+        {
+            "_id": "e77bfa53-6158-4e56-83ea-027a193fa1e9",
+            "title": "God of War",
+            "description": "God of War is an action-adventure video game developed by Santa Monica Studio and published by Sony Interactive Entertainment. Released on April 20, 2018, for the PlayStation 4 console, it is the eighth installment in the God of War series, the eighth chronologically, and the sequel to 2010's God of War III",
+            "platforms": [
+                "Playstation 4"
+            ],
+            "genders": [
+                "Action-Aventure Game"
+            ],
+            "price": 50.99,
+            "rating": 5.0,
+            "developers": [
+                "Santa Monica Studo"
+            ],
+            "releaseDate": "2018-04-19T22:00:00.000Z",
+            "thumbnail": "http://localhost:5010/media/thumb-gears-of-war-4.jpeg",
+            "updatedAt": "2019-02-12T20:33:22.433Z"
+        },
+        {
+            "_id": "16a7ca88-4e9d-43e3-9a96-910e3ef4c1fe",
+            "title": "TrackMania Turbo",
+            "description": "TrackMania Turbo is a racing video game developed by Nadeo and published by Ubisoft. Announced at E3 2015, the title is the first TrackMania game that is to be released on consoles since 2009's TrackMania Wii. The game features support for virtual reality.",
+            "platforms": [
+                "Playstation 4",
+                "Xbox One",
+                "Microsoft Windows"
+            ],
+            "genders": [
+                "Racing Game"
+            ],
+            "price": 19.90,
+            "rating": 4.2,
+            "developers": [
+                "Nadeo"
+            ],
+            "releaseDate": "2016-03-23T23:00:00.000Z",
+            "thumbnail": "http://localhost:5010/media/thumb-trackmania-turbo.jpg",
+            "updatedAt": "2019-02-12T20:33:22.433Z"
+        },
+        {
+            "_id": "45d3b358-2a2d-4d55-83d4-0f66b1a60224",
+            "title": "Gears of War 4",
+            "description": "Gears of War 4 is a third-person shooter video game developed by The Coalition and published by Microsoft Studios for Microsoft Windows and Xbox One. It is the fourth main installment in the Gears of War series, and the first mainline entry not to be developed by Epic Games.",
+            "platforms": [
+                "Xbox One",
+                "Microsoft Windows"
+            ],
+            "genders": [
+                "Third-Person Shooter Game"
+            ],
+            "price": 10.90,
+            "rating": 4.8,
+            "developers": [
+                "The Coalition"
+            ],
+            "releaseDate": "2016-10-10T22:00:00.000Z",
+            "thumbnail": "http://localhost:5010/media/thumb-gears-of-war-4.jpeg",
+            "updatedAt": "2019-02-12T20:33:22.433Z"
+        }
+    ]
+}

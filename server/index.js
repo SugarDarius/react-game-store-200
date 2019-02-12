@@ -41,7 +41,7 @@ app.use('/:name?', (req, res) => {
 
     res.status(200).send(html({
         build: `http://localhost:${WEBPACK_PORT}/build/${bundleName}.bundle.js` 
-    })).end();
+    }));
 });
 
 console.info(cyan(`[React Game Store]\t Starting server in ${process.env.NODE_ENV} env at ${moment().format('llll')} !`));

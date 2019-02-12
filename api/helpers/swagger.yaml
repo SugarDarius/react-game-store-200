@@ -1,0 +1,140 @@
+swagger: "2.0"
+info:
+  version: 1.0.0
+  title: Swagger Games
+host: "localhost:5010"
+basePath: /api
+schemes:
+  - http
+paths:
+  "/games":
+    get:
+      summary: Finds Games
+      operationId: findGames
+      produces:
+        - application/json
+      responses:
+        "200":
+          description: successful operation
+          schema:
+            type: object
+            items:
+              $ref: "#/definitions/Game"
+  "/game":
+    post:
+      summary: Add a new game to the store
+      operationId: addNewGame
+      consumes:
+        - application/json
+      parameters:
+        - in: body
+          name: body
+          description: Game object that needs to be added to the store
+          required: false
+          schema:
+            $ref: "#/definitions/Game"
+      responses:
+        "201":
+          description: Game created
+  "/game/{id}":
+    get:
+      summary: Find game by ID
+      description: Returns a single game
+      operationId: findGameById
+      produces:
+        - application/json
+      parameters:
+        - name: _id
+          in: path
+          description: ID of game to return
+          required: true
+          type: string
+          format: uuid
+      responses:
+        "200":
+          description: successful operation
+          schema:
+            $ref: "#/definitions/Game"
+        "404":
+          description: Game not found
+    put:
+      summary: Updates a game in the store with form data
+      description: ""
+      operationId: updateGameById
+      produces:
+        - application/json
+      parameters:
+        - name: _id
+          in: path
+          description: ID of game that needs to be updated
+          required: true
+          type: string
+          format: uuid
+        - in: body
+          name: body
+          description: Game object that needs to be added to the store
+          required: false
+          schema:
+            $ref: "#/definitions/Game"
+      responses:
+        "200":
+          description: Game updated
+    delete:
+      summary: Deletes a game
+      description: ""
+      operationId: deleteGameById
+      produces:
+        - application/json
+      parameters:
+        - name: _id
+          in: path
+          description: Game id to delete
+          required: true
+          type: string
+          format: uuid
+      responses:
+        "404":
+          description: Game not found
+definitions:
+  Game:
+    required:
+      - _id
+      - title
+      - description
+    properties:
+      _id:
+        type: string
+        format: uuid
+      title:
+        type: string
+        example: "Sfeir Game"
+      description:
+        type: string
+        example: "An awesome game"
+      platforms:
+        type: array
+        items:
+          type: string
+      genders:
+        type: array
+        items:
+          type: string
+      price:
+        type: number
+        example: 40.90
+      rating:
+        type: number
+        example: 4.5
+      developers:
+        type: array
+        items:
+          type: string
+      releaseDate:
+        type: string
+        example: "2018-09-13T22:00:00.000Z"
+      thumbnail:
+        type: string
+        example: "http://localhost:5010/media/thumb-shadow-of-the-tomb-raider.jpg"
+      updatedAt:
+        type: string
+        example: "2019-02-12T20:33:22.433Z"

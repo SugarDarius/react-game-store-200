@@ -18,7 +18,7 @@
         "npm": ">=6.x"
     },
     "scripts": {
-        "develop": "npm run develop:client:build && npm run develop:api:serve && npm run develop:server:serve",
+        "develop": "npm run develop:api:serve & npm run develop:server:serve & npm run develop:client:build",
         "develop:client:build": "better-npm-run develop:client:build",
         "develop:api:serve": "better-npm-run develop:api:serve",
         "develop:server:serve": "better-npm-run develop:server:serve"

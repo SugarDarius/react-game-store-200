@@ -20,11 +20,15 @@ import dotenv from 'dotenv';
 import moment from 'moment';
 import chalk from 'chalk';
 
-import { config } from './client.dev.config';
+import { exercices, setConfig } from './client.dev.config';
 
 dotenv.config({ path: path.resolve(__dirname, '../.env') });
 
 const PORT = process.env.WEBPACK_PORT || 4110;
+const arg = process.argv[2] || 'home';
+
+const entry = exercices[arg] || exercices['home'];
+const config = setConfig(entry);
 
 const compiler = webpack(config);
 

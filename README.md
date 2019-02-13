@@ -44,10 +44,10 @@ These are differents commands availables for the project.
 #### Start the project entirely  
 
 ```shell
-npm run develop
+npm run develop -- [exerice-name]
 ```
 
-> Running the 3 commands below
+> Running the 3 commands below - if no args are provided then the app build only the splash screen (home)
 
 #### Serving the API
 
@@ -80,12 +80,6 @@ For one exercice there is two directory :
 *  **exercice-[xx]**: sources where to write code to make the exercice
 *  **exercice-[xx]-correction**: sources where is the correction of the exercice
 
-To access at an exercice for example entre the url :  
-http://localhost:4010/exercice-01  
-
-To access at an exercice's correction for example entre the url :   
-http://localhost:4010/exercice-01-correction 
-
 ## API 
 The API of the practical work is serve at :  
 http://localhost:5010
@@ -99,7 +93,7 @@ http://localhost:5010
 * [DELETE] **/api/game/:id**: delete a game
 
 ### SwaggerUI :
-A SwaggerUI is available at :<br />
+A SwaggerUI is available at :  
 http://localhost:5010/?url=http://localhost:5010/helpers/swagger.yaml
 
 

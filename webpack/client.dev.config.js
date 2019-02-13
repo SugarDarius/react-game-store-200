@@ -20,30 +20,32 @@ const baseEntry = [
     `webpack-hot-middleware/client?path=http://localhost:${PORT}/__webpack_hmr&timeout=20000`,
 ];
 
-const config = {
+const exercices = {
+    'home': [
+        ...baseEntry,
+        path.resolve(__dirname, '../client/home.jsx'),
+    ],
+
+    'exercice-01': [
+        ...baseEntry,
+        path.resolve(__dirname, '../client/exercice-01.jsx'),
+    ],
+    
+    'exercice-01-correction': [
+        ...baseEntry,
+        path.resolve(__dirname, '../client/exercice-01-correction.jsx'),
+    ]
+}
+
+const setConfig = (entry) => ({
     mode: 'development',
     devtool: 'cheap-module-source-map',
 
-    entry: {
-        home: [
-            ...baseEntry,
-            path.resolve(__dirname, '../client/home.jsx'),
-        ],
-
-        'exercice-01': [
-            ...baseEntry,
-            path.resolve(__dirname, '../client/exercice-01.jsx'),
-        ],
-
-        'exercice-01-correction': [
-            ...baseEntry,
-            path.resolve(__dirname, '../client/exercice-01-correction.jsx'),
-        ]
-    },
+    entry,
 
     output: {
         publicPath: `http://localhost:${PORT}/build/`,
-        filename: '[name].bundle.js',
+        filename: 'app.bundle.js',
         path: path.resolve(__dirname, '../build')
     },
 
@@ -102,6 +104,9 @@ const config = {
             'process.env.NODE_ENV': '"development"'
         })
     ]
-}
+})
 
-export { config }
+export { 
+    exercices,
+    setConfig 
+}

@@ -55,11 +55,9 @@ app.use('/api', proxy({
     }
 }));
 
-app.use('/:name?', (req, res) => {
-    const bundleName = req.params.name || 'home';
-
+app.use('/', (req, res) => {
     res.status(200).send(html({
-        build: `http://localhost:${WEBPACK_PORT}/build/${bundleName}.bundle.js` 
+        build: `http://localhost:${WEBPACK_PORT}/build/app.bundle.js` 
     }));
 });
 

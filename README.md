@@ -1,7 +1,7 @@
 # React Game Store - 200
 The practical work of the Sfeir School React 200
 
-![SfeirLogo](https://github.com/SugarDarius/react-game-store-200/blob/master/src/images/sfeir-logo.png)
+![SfeirLogo](https://github.com/SugarDarius/react-game-store-200/blob/master/src/images/sfeir-logo.png =240x240)
 
 ## Table of Contents (Optional)
 

@@ -5,6 +5,8 @@
 */
 
 import { createServer } from 'http';
+import proxy from 'http-proxy-middleware';
+
 import path from 'path';
 
 import express from 'express';
@@ -25,6 +27,7 @@ const { red, cyan } = chalk;
 
 const SERVER_PORT = process.env.SERVER_PORT || 4010;
 const WEBPACK_PORT = process.env.WEBPACK_PORT || 4110;
+const API_PORT = process.env.API_PORT || 5010;
 
 const app = express();
 const server = createServer(app);
@@ -35,6 +38,22 @@ app.use(morgan((tokens, req, res) => (
 
 app.use(bodyParser.urlencoded({ extended: true }));
 app.use(bodyParser.json());
+
+app.use('/api', proxy({
+    target: `http://localhost:${API_PORT}`,
+    changeOrigin: true,
+    logLevel: 'debug',
+    onProxyReq: (proxyReq, req) => {
+        if (req.body) {
+            const body = JSON.stringify(req.body);
+
+            proxyReq.setHeader('Content-Type', 'application/json; charset=utf-8');
+            proxyReq.setHeader('Content-Length', Buffer.byteLength(body));
+
+            proxyReq.write(body);
+        }
+    }
+}));
 
 app.use('/:name?', (req, res) => {
     const bundleName = req.params.name || 'home';

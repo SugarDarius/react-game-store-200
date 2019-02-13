@@ -2,7 +2,7 @@
 The practical work of the Sfeir School React 200
 
 ![SfeirLogo](https://github.com/SugarDarius/react-game-store-200/blob/master/src/images/sfeir-logo-small.png)
-## Table of Contents (Optional)
+## Table of Contents
 
 - [Getting Started](#installation)
 - [Practical Work](#practical-work)
@@ -80,6 +80,12 @@ For one exercice there is two directory :
 *  **exercice-[xx]**: sources where to write code to make the exercice
 *  **exercice-[xx]-correction**: sources where is the correction of the exercice
 
+To access at an exercice for example entre the url :  
+http://localhost:4010/exercice-01  
+
+To access at an exercice's correction for example entre the url :   
+http://localhost:4010/exercice-01-correction 
+
 ## API 
 The API of the practical work is serve at :  
 http://localhost:5010
@@ -103,6 +109,7 @@ http://localhost:5010/?url=http://localhost:5010/helpers/swagger.yaml
 * [React Router](https://reacttraining.com/react-router/web/guides/philosophy)
 * [Redux](https://redux.js.org/)
 * [Jest](https://jestjs.io/)
+* [Enzyme](https://airbnb.io/enzyme/)
 * [Sass](https://sass-lang.com/)
 * [Webpack](https://webpack.js.org/)
 * [NodeJS](https://nodejs.org/en/)

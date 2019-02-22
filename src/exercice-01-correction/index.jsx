@@ -2,7 +2,7 @@ import '../shared/stylesheets/normalize.css';
 import './stylesheet.scss';
 
 import React from 'react';
-import { Title } from '../core/components/index.jsx'
+import { Title } from '../core/components/exercice-1-correction/index.jsx'
 
 export const Exercice01CorrectionApp = () => (
     <main>

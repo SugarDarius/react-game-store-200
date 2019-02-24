@@ -1,10 +1,10 @@
 import React from 'react'
 
-export const GameGenders = () => {
+export const GameGenders = props => {
     const { genders, className } = props;
     return <div className={ className }>
-        { genders.length > 0 && genders.map(gender => {
-            return <span>{ gender }</span>
+        { genders.length > 0 && genders.map((gender, key) => {
+            return <span key={key}>{ gender }</span>
         })
         }
     </div>

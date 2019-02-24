@@ -22,7 +22,7 @@ export class GameStore extends React.Component {
 
     render() {
         return <div>
-            <GameList games={ this.state.games }/>
+            <GameList games={ this.state.games } className='gameList'/>
         </div>
     }
 }

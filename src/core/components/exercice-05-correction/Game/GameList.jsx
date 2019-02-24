@@ -7,7 +7,7 @@ export const GameList = props => {
     return <>
         {
             games.length > 0 && games.map(game => {
-                return <Game game={ game }/>
+                return <Game game={ game } key={game._id} className='game'/>
             })
         }
     </>

@@ -9,7 +9,7 @@ import { GameRating } from "./GameComponents/GameRating";
 import { GameReleaseDate } from "./GameComponents/GameReleaseDate";
 import { GameDevelopers } from "./GameComponents/GameDevelopers";
 
-export const Game = () => {
+export const Game = props => {
     const { className } = props
     const { title, description, platforms, genders, price, rating, developers, releaseDate, thumbnails } = props.game;
     return <div className={className}>
@@ -19,7 +19,7 @@ export const Game = () => {
         <GameGenders genders={ genders }/>
         <GamePrice>{ price }</GamePrice>
         <GameRating>{ rating }</GameRating>
-        <GameDevelopers>{ developers }</GameDevelopers>
+        <GameDevelopers developers={developers} className={''} />
         <GameReleaseDate>{ releaseDate }</GameReleaseDate>
         <GameThumbnails src={thumbnails} alt={title} />
     </div>

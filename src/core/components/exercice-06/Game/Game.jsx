@@ -12,15 +12,15 @@ import { GameDevelopers } from "./GameComponents/GameDevelopers";
 export const Game = props => {
     const { className } = props
     const { title, description, platforms, genders, price, rating, developers, releaseDate, thumbnails } = props.game;
-    return <div className={className}>
+    return <div className={ className }>
         <GameTitle>{ title }</GameTitle>
         <GameDescription>{ description }</GameDescription>
         <GamePlatforms platforms={ platforms }/>
         <GameGenders genders={ genders }/>
         <GamePrice>{ price }</GamePrice>
         <GameRating>{ rating }</GameRating>
-        <GameDevelopers developers={developers} className={''} />
+        <GameDevelopers developers={ developers } className={ '' }/>
         <GameReleaseDate>{ releaseDate }</GameReleaseDate>
-        <GameThumbnails src={thumbnails} alt={title} />
+        <GameThumbnails src={ thumbnails } alt={ title }/>
     </div>
 }

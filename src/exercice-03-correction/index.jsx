@@ -7,6 +7,6 @@ import { Header } from '../core/components/exercice-03-correction/index.jsx'
 
 export const Exercice03CorrectionApp = () => (
     <main>
-        <Header />
+        <Header/>
     </main>
 )

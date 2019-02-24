@@ -1,27 +1,26 @@
-
 /*
 *   React Game Store 200 - src - Home - stylesheet
 *   author: Aurélien Dupays Dexemple
 */
 
 .app-box {
-    position: relative;
-    display: flex !important;
-    flex-direction: column !important;
-    justify-content: center;
-    align-items: center;
-    width: 100%;
-    height: 100%;
-    background-color: #ffffff;
+  position: relative;
+  display: flex !important;
+  flex-direction: column !important;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  height: 100%;
+  background-color: #ffffff;
 
-    &__logo {
-        display: block;
-        width: 280px;
-        height: auto;
-    }
+  &__logo {
+    display: block;
+    width: 280px;
+    height: auto;
+  }
 
-    > h1 {
-        margin: 0;
-        font-size: 52px
-    }
+  > h1 {
+    margin: 0;
+    font-size: 52px
+  }
 }

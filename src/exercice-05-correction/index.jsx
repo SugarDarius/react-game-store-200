@@ -14,7 +14,7 @@ export class Exercice05CorrectionApp extends React.Component {
     render() {
         const nextTheme = this.state.theme === 'light' ? 'dark' : 'light';
 
-        return <main className={`main ${ this.state.theme }`}>
+        return <main className={ `main ${ this.state.theme }` }>
             <ToggleTheme nextTheme={ nextTheme }
                          handleOnClick={ () => {
                              this.setState({ theme: nextTheme })

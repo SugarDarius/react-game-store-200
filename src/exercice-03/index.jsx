@@ -7,6 +7,6 @@ import { Title } from '../core/components/exercice-03/index.jsx'
 
 export const Exercice03App = () => (
     <main>
-        <Title />
+        <Title/>
     </main>
 )

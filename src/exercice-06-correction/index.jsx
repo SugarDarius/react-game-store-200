@@ -3,9 +3,9 @@ import '../shared/stylesheets/commons.scss';
 import './stylesheet.scss';
 
 import React from 'react';
-import { Header, ToggleTheme } from '../core/components/exercice-04-correction/index.jsx'
+import { Header, ToggleTheme, GameStore } from '../core/components/exercice-06-correction/index.jsx'
 
-export class Exercice04CorrectionApp extends React.Component {
+export class Exercice06CorrectionApp extends React.Component {
     constructor(props) {
         super(props);
         this.state = { theme: 'light' }
@@ -21,6 +21,7 @@ export class Exercice04CorrectionApp extends React.Component {
                          }
                          }/>
             <Header/>
+            <GameStore/>
         </main>
     }
 }

@@ -5,6 +5,6 @@ const properties = {
     className: "title"
 }
 
-export const Title =  () => {
-    return <h1 className={properties.className}>{`${properties.title}: A new beginning!`}</h1>
+export const Title = () => {
+    return <h1 className={ properties.className }>{ `${ properties.title }: A new beginning!` }</h1>
 }

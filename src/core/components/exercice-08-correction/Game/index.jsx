@@ -71,8 +71,6 @@ export class GameStore extends React.Component {
     }
 
     render() {
-        const { className } = this.props
-
         return (
             <div className='pure-g'>
                 <div className='pure-u-12-24'>

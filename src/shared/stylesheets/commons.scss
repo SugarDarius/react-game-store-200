@@ -2,7 +2,6 @@
 html,
 body {
   position: relative;
-  display: flex !important;
   flex-direction: column !important;
   justify-content: center;
   align-items: center;
@@ -16,7 +15,6 @@ body {
 
 #react-mount-node {
   position: relative;
-  display: flex !important;
   flex-direction: column !important;
   justify-content: center;
   align-items: center;

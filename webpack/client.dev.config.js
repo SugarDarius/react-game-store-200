@@ -125,6 +125,11 @@ const exercices = {
         ...baseEntry,
         path.resolve(__dirname, '../client/exercice-10-correction.jsx'),
     ],
+
+    'exercice-11-correction': [
+        ...baseEntry,
+        path.resolve(__dirname, '../client/exercice-11-correction.jsx'),
+    ],
 }
 
 const setConfig = (entry) => ({

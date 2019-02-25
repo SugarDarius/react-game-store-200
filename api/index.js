@@ -19,6 +19,8 @@ import chalk from 'chalk';
 
 import dotenv from 'dotenv';
 
+import cors from 'cors'
+
 import {
     findAll,
     findById,
@@ -48,6 +50,8 @@ app.use(bodyParser.json());
 app.use(express.static(pathToSwaggerUi))
 app.use('/helpers', express.static(path.resolve(__dirname, './helpers')))
 app.use('/media', express.static(path.resolve(__dirname, './media')));
+
+app.use(cors())
 
 app.get('/api/games', findAll);
 app.get('/api/game/:id', findById);

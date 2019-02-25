@@ -1,4 +1,3 @@
-
 /*
 *   React Game Store 200 - src - Exercice01
 *   author: Aurélien Dupays Dexemple

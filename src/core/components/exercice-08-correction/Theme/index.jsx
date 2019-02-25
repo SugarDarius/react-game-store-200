@@ -1,9 +1,11 @@
 import React from 'react'
 
-export const ToggleTheme = props => {
-    const { handleOnClick, nextTheme = '' } = props
-    return <div>
+export const ToggleTheme = ({ handleOnClick, nextTheme }) => (
+    <div>
         <span>Switch theme to </span>
-        <a onClick={ handleOnClick }>{ nextTheme }</a>
+        <a
+            className='pure-button pure-button-primary'
+            onClick={handleOnClick}>{nextTheme}
+        </a>
     </div>
-}
+)

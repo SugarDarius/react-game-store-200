@@ -1,4 +1,5 @@
-import React from 'react'
+import React from 'react';
+
 import { GameTitle } from "./GameComponents/GameTitle";
 import { GameDescription } from "./GameComponents/GameDescription";
 import { GamePlatforms } from "./GameComponents/GamePlatforms";
@@ -10,17 +11,20 @@ import { GameReleaseDate } from "./GameComponents/GameReleaseDate";
 import { GameDevelopers } from "./GameComponents/GameDevelopers";
 
 export const Game = props => {
-    const { className } = props
-    const { title, description, platforms, genders, price, rating, developers, releaseDate, thumbnails } = props.game;
-    return <div className={ className }>
-        <GameTitle>{ title }</GameTitle>
-        <GameDescription>{ description }</GameDescription>
-        <GamePlatforms platforms={ platforms }/>
-        <GameGenders genders={ genders }/>
-        <GamePrice>{ price }</GamePrice>
-        <GameRating>{ rating }</GameRating>
-        <GameDevelopers developers={ developers } className={ '' }/>
-        <GameReleaseDate>{ releaseDate }</GameReleaseDate>
-        <GameThumbnails src={ thumbnails } alt={ title }/>
-    </div>
+    const { className, game } = props;
+    const { title, description, platforms, genders, price, rating, developers, releaseDate, thumbnails } = game;
+
+    return (
+        <div className={ className }>
+            <GameTitle>{ title }</GameTitle>
+            <GameDescription>{ description }</GameDescription>
+            <GamePlatforms platforms={ platforms }/>
+            <GameGenders genders={ genders }/>
+            <GamePrice>{ price }</GamePrice>
+            <GameRating>{ rating }</GameRating>
+            <GameDevelopers developers={ developers } className={ '' }/>
+            <GameReleaseDate>{ releaseDate }</GameReleaseDate>
+            <GameThumbnails src={ thumbnails } alt={ title } />
+        </div>
+    )
 }

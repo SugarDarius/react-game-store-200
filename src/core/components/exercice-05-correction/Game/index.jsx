@@ -21,14 +21,16 @@ export class GameStore extends React.Component {
     }
 
     render() {
-        if (this.state.game) {
-            return <div>
-                { <Game className="game" game={ this.state.game }/> }
+        const { game, error } = this.state;
+
+        return error.length === 0 && game !== null ? (
+            <div>
+                <Game className="game" game={game} />
             </div>
-        } else {
-            return <div>
-                { <p>No Game Found</p> }
+        ) : (
+            <div>
+                <p>{`No Game Found: ${error}`}</p>
             </div>
-        }
+        )
     }
 }

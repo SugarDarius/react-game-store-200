@@ -42,8 +42,11 @@ export class GameStore extends React.Component {
             updatedAt: this.state.gameUpdatedAt
         }
 
-        fetch('http://localhost:5010/api/game', {
+        fetch('/api/game', {
             method: 'POST',
+            headers: {
+                'Content-Type': 'application/json'
+            },
             body: JSON.stringify(game)
         })
             .then(response => response.json())

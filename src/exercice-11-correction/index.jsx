@@ -4,31 +4,28 @@ import '../shared/stylesheets/pure-min.css';
 import './stylesheet.scss';
 
 import React from 'react';
-import { Header, ToggleTheme, GameStore } from '../core/components/exercice-11-correction/index.jsx'
+import {
+    Header,
+    ToggleTheme,
+    GameStore,
+    ContextConsumer
+} from '../core/components/exercice-11-correction/index.jsx'
 
 export class Exercice11CorrectionApp extends React.Component {
-    constructor(props) {
-        super(props);
-        this.state = { theme: 'light' }
-    }
-
     render() {
-        const nextTheme = this.state.theme === 'light' ? 'dark' : 'light';
 
         return (
             <div className='pure-g'>
                 <div className='pure-u-24-24'>
-                    <main className={`main ${this.state.theme}`}>
-                        <ToggleTheme
-                            nextTheme={nextTheme}
-                            handleOnClick={e => {
-                                e.preventDefault();
-                                this.setState({ theme: nextTheme })
-                            }}
-                        />
-                        <Header />
-                        <GameStore className='gameStore' />
-                    </main>
+                    <ContextConsumer>
+                        { ({ theme }) => {
+                            return <main className={ `main ${ theme }` }>
+                                <ToggleTheme/>
+                                <Header/>
+                                <GameStore className='gameStore'/>
+                            </main>
+                        } }
+                    </ContextConsumer>
                 </div>
             </div>
         )

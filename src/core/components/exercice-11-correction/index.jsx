@@ -18,3 +18,5 @@ export { GameStore } from './Game';
 export { GameForm } from './Game/GameForm';
 export { GameList } from './Game/GameList'
 export { Game } from './Game/Game'
+// Context
+export { ContextConsumer, Context } from './Context'

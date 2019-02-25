@@ -1,14 +1,14 @@
 import React from 'react';
+import { GameList } from "./GameList";
 import { GameFetchError } from "./GameFetchError";
 import { GameListEmpty } from "./GameListEmpty";
-import { Game } from "./Game";
 
 export class GameStore extends React.Component {
     constructor(props) {
         super(props);
 
         this.state = {
-            game: null,
+            games: [],
             error: '',
             gameTitle: '',
             gameDescription: '',
@@ -47,17 +47,21 @@ export class GameStore extends React.Component {
             body: JSON.stringify(game)
         })
             .then(response => response.json())
-            .then(game => {
-                console.log('My game has been added! ', JSON.stringify(game))
+            .then(gameAdded => {
+                const games = [ ...this.state.games, {
+                    _id: gameAdded._id,
+                    ...game
+                } ]
+                this.setState({ games: [ ...games ] })
             })
             .catch(error => this.setState({ error: error }))
     }
 
     componentDidMount() {
-        fetch('http://localhost:5010/api/game/9af3c847-4c1a-471a-a7eb-b768cb8887d5')
+        fetch('http://localhost:5010/api/games')
             .then(response => response.json())
-            .then(game => {
-                this.setState({ game: game })
+            .then(games => {
+                this.setState({ games: [ ...games ] })
             })
             .catch(error => this.setState({ error: error }))
     }
@@ -65,10 +69,10 @@ export class GameStore extends React.Component {
     render() {
         const { className } = this.props
 
-        return <div>
+        return <div className={ className }>
             { this.state.error !== '' ?
                 <GameFetchError className="fetchError">An error occurred, please come back later</GameFetchError> :
-                this.state.game ? <Game className="game" game={ this.state.game }/> :
+                this.state.games.length > 0 ? <GameList games={ this.state.games } className='gameList'/> :
                     <GameListEmpty className="listEmpty">No games to show :/</GameListEmpty>
             }
 

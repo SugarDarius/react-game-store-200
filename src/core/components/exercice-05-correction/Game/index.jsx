@@ -1,28 +1,34 @@
 import React from 'react';
-import { GameList } from "./GameList";
+import { Game } from "./Game";
 
 export class GameStore extends React.Component {
     constructor(props) {
         super(props);
 
         this.state = {
-            games: [],
+            game: null,
             error: ''
         }
     }
 
     componentDidMount() {
-        fetch('http://localhost:5010/api/games')
+        fetch('http://localhost:5010/api/game/9af3c847-4c1a-471a-a7eb-b768cb8887d5')
             .then(response => response.json())
-            .then(games => {
-                this.setState({ games: [ ...games ] })
+            .then(game => {
+                this.setState({ game: game })
             })
             .catch(error => this.setState({ error: error }))
     }
 
     render() {
-        return <div>
-            <GameList games={ this.state.games } className='gameList'/>
-        </div>
+        if (this.state.game) {
+            return <div>
+                { <Game className="game" game={ this.state.game }/> }
+            </div>
+        } else {
+            return <div>
+                { <p>No Game Found</p> }
+            </div>
+        }
     }
 }

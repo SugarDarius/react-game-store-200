@@ -1,5 +1,5 @@
 import React from 'react';
-import { GameList } from "./GameList";
+import { Game } from "./Game";
 import { GameFetchError } from "./GameFetchError";
 import { GameListEmpty } from "./GameListEmpty";
 
@@ -53,15 +53,16 @@ export class GameStore extends React.Component {
                     ...game
                 } ]
                 this.setState({ games: [ ...games ] })
+                console.log(this.state.games)
             })
             .catch(error => this.setState({ error: error }))
     }
 
     componentDidMount() {
-        fetch('http://localhost:5010/api/games')
+        fetch('http://localhost:5010/api/game/9af3c847-4c1a-471a-a7eb-b768cb8887d5')
             .then(response => response.json())
-            .then(games => {
-                this.setState({ games: [ ...games ] })
+            .then(game => {
+                this.setState({ games: [ game ] })
             })
             .catch(error => this.setState({ error: error }))
     }
@@ -72,7 +73,8 @@ export class GameStore extends React.Component {
         return <div className={ className }>
             { this.state.error !== '' ?
                 <GameFetchError className="fetchError">An error occurred, please come back later</GameFetchError> :
-                this.state.games.length > 0 ? <GameList games={ this.state.games } className='gameList'/> :
+                (this.state.games.length > 0 && this.state.games[ 0 ]) ?
+                    <Game game={ this.state.games[ 0 ] } className='game'/> :
                     <GameListEmpty className="listEmpty">No games to show :/</GameListEmpty>
             }
 

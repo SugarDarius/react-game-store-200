@@ -1,14 +1,14 @@
 import React from 'react';
-import { GameList } from "./GameList";
 import { GameFetchError } from "./GameFetchError";
 import { GameListEmpty } from "./GameListEmpty";
+import { Game } from "./Game";
 
 export class GameStore extends React.Component {
     constructor(props) {
         super(props);
 
         this.state = {
-            games: [],
+            game: null,
             error: '',
             gameTitle: '',
             gameDescription: '',
@@ -54,10 +54,10 @@ export class GameStore extends React.Component {
     }
 
     componentDidMount() {
-        fetch('http://localhost:5010/api/games')
+        fetch('http://localhost:5010/api/game/9af3c847-4c1a-471a-a7eb-b768cb8887d5')
             .then(response => response.json())
-            .then(games => {
-                this.setState({ games: [ ...games ] })
+            .then(game => {
+                this.setState({ game: game })
             })
             .catch(error => this.setState({ error: error }))
     }
@@ -65,12 +65,12 @@ export class GameStore extends React.Component {
     render() {
         const { className } = this.props
 
-        return <div className={ className }>
-            { this.state.error !== '' ?
-                <GameFetchError className="fetchError">An error occurred, please come back later</GameFetchError> :
-                this.state.games.length > 0 ? <GameList games={ this.state.games } className='gameList'/> :
-                    <GameListEmpty className="listEmpty">No games to show :/</GameListEmpty>
-            }
+        return <div>
+                { this.state.error !== '' ?
+                    <GameFetchError className="fetchError">An error occurred, please come back later</GameFetchError> :
+                    this.state.game ? <Game className="game" game={ this.state.game }/> :
+                        <GameListEmpty className="listEmpty">No games to show :/</GameListEmpty>
+                }
 
             <form onSubmit={ this.onFormSubmit.bind(this) }>
                 <p>Title: </p><input type='text'

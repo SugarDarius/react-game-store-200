@@ -44,16 +44,15 @@ export class GameStore extends React.Component {
 
         fetch('http://localhost:5010/api/game', {
             method: 'POST',
+            headers: {
+                'Content-Type': 'application/json'
+            },
             body: JSON.stringify(game)
         })
             .then(response => response.json())
             .then(gameAdded => {
-                const games = [ ...this.state.games, {
-                    _id: gameAdded._id,
-                    ...game
-                } ]
-                this.setState({ games: [ ...games ] })
-                console.log(this.state.games)
+                const games = [ ...this.state.games, { ...gameAdded } ]
+                this.setState({ games })
             })
             .catch(error => this.setState({ error: error }))
     }

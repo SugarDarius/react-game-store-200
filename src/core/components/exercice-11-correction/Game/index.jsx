@@ -41,11 +41,13 @@ export class GameStore extends React.Component {
         const { className } = this.props
 
         return <Bloc className={ className }>
-            { this.state.error !== '' ?
-                <Bloc className="fetchError">An error occurred, please come back later</Bloc> :
-                this.state.games.length > 0 ? <GameList games={ this.state.games } className='gameList'/> :
-                    <Bloc className="listEmpty">No games to show :/</Bloc>
-            }
+            <Bloc className="pure-u-12-24">
+                { this.state.error !== '' ?
+                    <Bloc className="fetchError">An error occurred, please come back later</Bloc> :
+                    this.state.games.length > 0 ? <GameList games={ this.state.games } className='gameList'/> :
+                        <Bloc className="listEmpty">No games to show :/</Bloc>
+                }
+            </Bloc>
             <GameForm handleOnChange={ this.onInputValueChange }
                       handleOnSubmit={ this.onFormSubmit.bind(this) }/>
         </Bloc>

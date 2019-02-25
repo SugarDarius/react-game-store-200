@@ -42,15 +42,19 @@ export class GameStore extends React.Component {
             updatedAt: this.state.gameUpdatedAt
         }
 
-        fetch('http://localhost:5010/api/game', {
+        fetch('/api/game', {
             method: 'POST',
+            credentials: 'same-origin',
+            headers: {
+                'Content-Type': 'application/json'
+            },
             body: JSON.stringify(game)
         })
-            .then(response => response.json())
-            .then(game => {
-                console.log('My game has been added! ', JSON.stringify(game))
-            })
-            .catch(error => this.setState({ error: error }))
+        .then(response => response.json())
+        .then(game => {
+            console.log('My game has been added! ', JSON.stringify(game))
+        })
+        .catch(error => this.setState({ error: error }))
     }
 
     componentDidMount() {

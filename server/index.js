@@ -15,6 +15,8 @@ import bodyParser from 'body-parser';
 import morgan from 'morgan';
 import moment from 'moment';
 
+import cors from 'cors'
+
 import chalk from 'chalk';
 
 import dotenv from 'dotenv';
@@ -36,6 +38,8 @@ app.use(morgan((tokens, req, res) => (
     cyan(`[React Game Store]\t ${tokens.method(req, res)} ${tokens.url(req, res)} ${tokens['response-time'](req, res)} ms in ${process.env.NODE_ENV} env !`)
 )));
 
+app.use(cors());
+
 app.use(bodyParser.urlencoded({ extended: true }));
 app.use(bodyParser.json());
 
@@ -44,6 +48,7 @@ app.use('/api', proxy({
     changeOrigin: true,
     logLevel: 'debug',
     onProxyReq: (proxyReq, req) => {
+        console.log(req.body);
         if (req.body) {
             const body = JSON.stringify(req.body);
 

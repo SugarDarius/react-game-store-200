@@ -20,6 +20,7 @@ export function findById(req, res) {
 }
 
 export function addNew(req, res) {
+    console.log(req.body);
     res.status(201).json(GamesService.create(req.body));
 }
 

@@ -48,11 +48,7 @@ export class GameStore extends React.Component {
         })
             .then(response => response.json())
             .then(game => {
-                const games = [ ...this.state.games, {
-                    _id: game._id,
-                    ...game
-                } ]
-                this.setState({ games: [ ...games ] })
+                console.log('My game has been added! ', JSON.stringify(game))
             })
             .catch(error => this.setState({ error: error }))
     }

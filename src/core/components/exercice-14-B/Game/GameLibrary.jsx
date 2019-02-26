@@ -6,13 +6,13 @@ export class GameLibrary extends React.Component {
     constructor(props) {
         super(props);
         this.state = {
-            games: [],
+            games: this.props.games ? this.props.games : [],
             error: ''
         }
     }
 
     componentDidMount() {
-        if (!this.props.game) {
+        if (this.props.games.length === 0) {
             fetch('http://localhost:5010/api/games')
                 .then(response => response.json())
                 .then(games => this.setState({ games }))

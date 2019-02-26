@@ -1,5 +1,6 @@
 import '../shared/stylesheets/normalize.css';
 import '../shared/stylesheets/commons.scss';
+import '../shared/stylesheets/pure-min.css';
 import './stylesheet.scss';
 
 import React from 'react';
@@ -14,15 +15,22 @@ export class Exercice09CorrectionApp extends React.Component {
     render() {
         const nextTheme = this.state.theme === 'light' ? 'dark' : 'light';
 
-        return <main className={ `main ${ this.state.theme }` }>
-            <ToggleTheme nextTheme={ nextTheme }
-                         handleOnClick={ e => {
-                             e.preventDefault();
-                             this.setState({ theme: nextTheme })
-                         }
-                         }/>
-            <Header/>
-            <GameStore className='gameStore'/>
-        </main>
+        return (
+            <div className='pure-g'>
+                <div className='pure-u-24-24'>
+                    <main className={`main ${this.state.theme}`}>
+                        <ToggleTheme
+                            nextTheme={nextTheme}
+                            handleOnClick={e => {
+                                e.preventDefault();
+                                this.setState({ theme: nextTheme })
+                            }}
+                        />
+                        <Header />
+                        <GameStore className='gameStore' />
+                    </main>
+                </div>
+            </div>
+        )
     }
 }

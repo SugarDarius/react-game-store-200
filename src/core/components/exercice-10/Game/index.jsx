@@ -51,8 +51,11 @@ export class GameStore extends React.Component {
         })
             .then(response => response.json())
             .then(gameAdded => {
-                const games = [ ...this.state.games, { ...gameAdded } ]
-                this.setState({ games })
+                const games = [ ...this.state.games, {
+                    _id: gameAdded._id,
+                    ...game
+                } ]
+                this.setState({ games: [ ...games ] })
             })
             .catch(error => this.setState({ error: error }))
     }
@@ -67,36 +70,58 @@ export class GameStore extends React.Component {
     }
 
     render() {
-        const { className } = this.props
-
-        return <div className={ className }>
-            { this.state.error !== '' ?
-                <GameFetchError className="fetchError">An error occurred, please come back later</GameFetchError> :
-                (this.state.games.length > 0 && this.state.games[ 0 ]) ?
-                    <Game game={ this.state.games[ 0 ] } className='game'/> :
-                    <GameListEmpty className="listEmpty">No games to show :/</GameListEmpty>
-            }
-
-            <form onSubmit={ this.onFormSubmit.bind(this) }>
-                <p>Title: </p><input type='text'
-                                     value={ this.state.gameTitle }
-                                     name="gameTitle"
-                                     onChange={ this.onInputValueChange.bind(this) }/>
-                <p>Description: </p><input type='text'
-                                           value={ this.state.gameDescription }
-                                           name="gameDescription"
-                                           onChange={ this.onInputValueChange.bind(this) }/>
-                <p>Price: </p><input type='number'
-                                     value={ this.state.gamePrice }
-                                     name="gamePrice"
-                                     onChange={ this.onInputValueChange.bind(this) }/>
-                <p>Rating: </p><input type='number'
-                                      value={ this.state.gameRating }
-                                      name="gameRating"
-                                      onChange={ this.onInputValueChange.bind(this) }/>
-
-                <input type='submit' value='Add game'/>
-            </form>
+        return <div className='pure-g'>
+            <div className='pure-u-12-24'>
+                {
+                    this.state.error !== '' ? (
+                        <GameFetchError className='fetchError'>An error occurred, please come back
+                            later</GameFetchError>
+                    ) : (
+                        this.state.games.length > 0 ? (
+                            <Game className='game' game={ this.state.games[ 0 ] }/>
+                        ) : (
+                            <GameListEmpty className='listEmpty'>No games to show :/</GameListEmpty>
+                        )
+                    )
+                }
+            </div>
+            <div className='pure-u-12-24'>
+                <form className='pure-form pure-form-stacked' onSubmit={ this.onFormSubmit.bind(this) }>
+                    <h1>Add a new Game</h1>
+                    <fieldset>
+                        <input
+                            type='text'
+                            value={ this.state.gameTitle }
+                            name='gameTitle'
+                            onChange={ this.onInputValueChange.bind(this) }
+                            placeholder='Title'
+                        />
+                        <input
+                            type='text'
+                            value={ this.state.gameDescription }
+                            name='gameDescription'
+                            onChange={ this.onInputValueChange.bind(this) }
+                            placeholder='Description'
+                        />
+                        <input
+                            type='number'
+                            value={ this.state.gamePrice }
+                            name='gamePrice'
+                            onChange={ this.onInputValueChange.bind(this) }
+                            placeholder='Price'
+                        />
+                        <input
+                            type='number'
+                            value={ this.state.gameRating }
+                            name='gameRating'
+                            onChange={ this.onInputValueChange.bind(this) }
+                            placeholder='Rating'
+                        />
+                        <button type='submit' className='pure-button pure-button-primary' value='Add game'>Add game
+                        </button>
+                    </fieldset>
+                </form>
+            </div>
         </div>
     }
 }

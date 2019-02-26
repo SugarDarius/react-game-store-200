@@ -1,7 +1,7 @@
 import React from 'react';
-import { GameFetchError } from "./GameFetchError";
-import { GameListEmpty } from "./GameListEmpty";
-import { Game } from "./Game";
+import { GameFetchError } from './GameFetchError';
+import { GameListEmpty } from './GameListEmpty';
+import { Game } from './Game';
 
 export class GameStore extends React.Component {
     constructor(props) {
@@ -28,7 +28,7 @@ export class GameStore extends React.Component {
     }
 
     onFormSubmit(e) {
-        e.preventDefault()
+        e.preventDefault();
         const game = {
             title: this.state.gameTitle,
             description: this.state.gameDescription,
@@ -42,8 +42,9 @@ export class GameStore extends React.Component {
             updatedAt: this.state.gameUpdatedAt
         }
 
-        fetch('http://localhost:5010/api/game', {
+        fetch('/api/game', {
             method: 'POST',
+            credentials: 'same-origin',
             headers: {
                 'Content-Type': 'application/json'
             },
@@ -51,6 +52,10 @@ export class GameStore extends React.Component {
         })
             .then(response => response.json())
             .then(game => {
+                this.setState({
+                    game,
+                    gameTitle: '',
+                })
                 console.log('My game has been added! ', JSON.stringify(game))
             })
             .catch(error => this.setState({ error: error }))
@@ -66,35 +71,59 @@ export class GameStore extends React.Component {
     }
 
     render() {
-        const { className } = this.props
-
-        return <div>
-            { this.state.error !== '' ?
-                <GameFetchError className="fetchError">An error occurred, please come back later</GameFetchError> :
-                this.state.game ? <Game className="game" game={ this.state.game }/> :
-                    <GameListEmpty className="listEmpty">No games to show :/</GameListEmpty>
-            }
-
-            <form onSubmit={ this.onFormSubmit.bind(this) }>
-                <p>Title: </p><input type='text'
-                                     value={ this.state.gameTitle }
-                                     name="gameTitle"
-                                     onChange={ this.onInputValueChange.bind(this) }/>
-                <p>Description: </p><input type='text'
-                                           value={ this.state.gameDescription }
-                                           name="gameDescription"
-                                           onChange={ this.onInputValueChange.bind(this) }/>
-                <p>Price: </p><input type='number'
-                                     value={ this.state.gamePrice }
-                                     name="gamePrice"
-                                     onChange={ this.onInputValueChange.bind(this) }/>
-                <p>Rating: </p><input type='number'
-                                      value={ this.state.gameRating }
-                                      name="gameRating"
-                                      onChange={ this.onInputValueChange.bind(this) }/>
-
-                <input type='submit' value='Add game'/>
-            </form>
-        </div>
+        return (
+            <div className='pure-g'>
+                <div className='pure-u-12-24'>
+                    {
+                        this.state.error !== '' ? (
+                            <GameFetchError className='fetchError'>An error occurred, please come back later</GameFetchError>
+                        ) : (
+                            this.state.game ? (
+                                <Game className='game' game={this.state.game} />
+                            ) : (
+                                <GameListEmpty className='listEmpty'>No games to show :/</GameListEmpty>
+                            )
+                        )
+                    }
+                </div>
+                <div className='pure-u-12-24'>
+                    <form className='pure-form pure-form-stacked' onSubmit={this.onFormSubmit.bind(this)}>
+                        <h1>Add a new Game</h1>
+                        <fieldset>
+                            <input
+                                type='text'
+                                value={this.state.gameTitle}
+                                name='gameTitle'
+                                onChange={this.onInputValueChange.bind(this)}
+                                placeholder='Title'
+                            />
+                            <input
+                                type='text'
+                                value={this.state.gameDescription}
+                                name='gameDescription'
+                                onChange={this.onInputValueChange.bind(this)}
+                                placeholder='Description'
+                            />
+                            <input
+                                type='number'
+                                value={this.state.gamePrice}
+                                name='gamePrice'
+                                onChange={this.onInputValueChange.bind(this)}
+                                placeholder='Price'
+                            />
+                            <input
+                                type='number'
+                                value={this.state.gameRating}
+                                name='gameRating'
+                                onChange={this.onInputValueChange.bind(this)}
+                                placeholder='Rating'
+                            />
+                            <button type='submit' className='pure-button pure-button-primary' value='Add game'>Add game
+                            </button>
+                        </fieldset>
+                    </form>
+                </div>
+            </div>
+        )
     }
 }

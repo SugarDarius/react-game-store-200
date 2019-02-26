@@ -4,6 +4,8 @@
 */
 
 .main {
+  position: 'relative';
+  display: 'flex';
   width: 100%;
   height: 100%;
   padding: 5%;
@@ -40,12 +42,7 @@
   }
 }
 
-.gameStore {
-  width: 50%;
-  display: inline-flex;
-}
-
 .game {
   width: 33%;
-  margin: 0;
+  margin: 2%;
 }

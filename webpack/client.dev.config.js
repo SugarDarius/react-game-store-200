@@ -126,9 +126,19 @@ const exercices = {
         path.resolve(__dirname, '../client/exercice-10-correction.jsx'),
     ],
 
+    'exercice-11': [
+        ...baseEntry,
+        path.resolve(__dirname, '../client/exercice-11.jsx'),
+    ],
+
     'exercice-11-correction': [
         ...baseEntry,
         path.resolve(__dirname, '../client/exercice-11-correction.jsx'),
+    ],
+
+    'exercice-13': [
+        ...baseEntry,
+        path.resolve(__dirname, '../client/exercice-13.jsx'),
     ],
 }
 

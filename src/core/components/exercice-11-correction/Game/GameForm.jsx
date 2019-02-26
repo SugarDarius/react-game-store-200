@@ -1,5 +1,5 @@
 import React from 'react'
-import { Form, Bloc, Title, Input, Button } from '../index'
+import { Form, Bloc, Title, Input, Button, FocusedInput } from '../index'
 
 export class GameForm extends React.Component {
     constructor(props) {
@@ -32,7 +32,7 @@ export class GameForm extends React.Component {
             } }>
                 <Title>Add a new Game</Title>
                 <fieldset>
-                    <Input
+                    <FocusedInput
                         type='text'
                         value={ this.state.gameTitle }
                         name='gameTitle'

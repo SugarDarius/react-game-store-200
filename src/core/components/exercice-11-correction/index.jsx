@@ -8,6 +8,7 @@ export { Image } from './Atoms/Image';
 export { Bloc } from './Atoms/Bloc';
 export { Form } from './Atoms/Form';
 export { Input } from './Atoms/Input';
+export { FocusedInput } from './Atoms/Input/FocusedInput'
 export { Button } from './Atoms/Button'
 // Header
 export { Header } from './Header/index.jsx';

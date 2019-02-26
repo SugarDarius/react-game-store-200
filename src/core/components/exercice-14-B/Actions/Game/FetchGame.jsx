@@ -1,17 +1,17 @@
-export const FETCH_GAME_BEGIN = 'FETCH_GAME_BEGIN';
-export const FETCH_GAME_SUCCESS = 'FETCH_GAME_SUCCESS';
-export const FETCH_GAME_ERROR = 'FETCH_GAME_ERROR';
+export const FETCH_GAME_BEGIN = '@@games/FETCH_GAME_BEGIN';
+export const FETCH_GAME_SUCCESS = '@@games/FETCH_GAME_SUCCESS';
+export const FETCH_GAME_ERROR = '@@games/FETCH_GAME_ERROR';
 
 export const fetchGameBegin = () => {
     return { type: FETCH_GAME_BEGIN }
 };
 
 export const fetchGameSuccess = game => {
-    return { type: FETCH_GAME_SUCCESS, game }
+    return { type: FETCH_GAME_SUCCESS, payload: { game } }
 };
 
 export const fetchGameError = error => {
-    return { type: FETCH_GAME_ERROR, error }
+    return { type: FETCH_GAME_ERROR, payload: { error } }
 };
 
 export function fetchGame(gameId) {

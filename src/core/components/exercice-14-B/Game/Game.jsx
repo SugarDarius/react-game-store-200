@@ -53,8 +53,8 @@ class GameContent extends React.Component {
 export const Game = connect(
     state => {
         return {
-            game: state.gameReducer.game,
-            error: state.gameReducer.error
+            game: state.gamesReducer.game,
+            error: state.gamesReducer.error
         }
     },
     dispatch => ({

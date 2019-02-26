@@ -5,7 +5,7 @@ const initialState = {
     error: null
 };
 
-export function gameReducer(state = initialState, action) {
+export function gamesReducer(state = initialState, action) {
     switch (action.type) {
         case FETCH_GAME_BEGIN:
             return {
@@ -15,12 +15,12 @@ export function gameReducer(state = initialState, action) {
         case FETCH_GAME_SUCCESS:
             return {
                 ...state,
-                game: { ...action.game }
+                game: { ...action.payload.game }
             };
         case FETCH_GAME_ERROR:
             return {
                 ...state,
-                error: action.error
+                error: action.payload.error
             };
         default:
             return state;

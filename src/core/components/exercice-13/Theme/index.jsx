@@ -4,9 +4,11 @@ import { Text, Bloc, ContextConsumer } from "../index";
 export const ToggleThemeBloc = props => {
     const { toggleTheme, nextTheme } = props;
     return <Bloc>
-        <Text>Switch theme to </Text>
-        <a className='pure-button pure-button-primary'
-           onClick={ toggleTheme }>{ nextTheme }</a>
+        <Text>Switch theme to <a
+            className='pure-button pure-button-primary'
+            onClick={ toggleTheme }>{ nextTheme }
+        </a>
+        </Text>
     </Bloc>
 };
 

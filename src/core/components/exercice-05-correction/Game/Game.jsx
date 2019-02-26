@@ -12,7 +12,7 @@ import { GameDevelopers } from "./GameComponents/GameDevelopers";
 
 export const Game = props => {
     const { className, game } = props;
-    const { title, description, platforms, genders, price, rating, developers, releaseDate, thumbnails } = game;
+    const { title, description, platforms, genders, price, rating, developers, releaseDate, thumbnail } = game;
 
     return (
         <div className={ className }>
@@ -24,7 +24,7 @@ export const Game = props => {
             <GameRating>{ rating }</GameRating>
             <GameDevelopers developers={ developers } className={ '' }/>
             <GameReleaseDate>{ releaseDate }</GameReleaseDate>
-            <GameThumbnails src={ thumbnails } alt={ title } />
+            <GameThumbnails src={ thumbnail } alt={ title } />
         </div>
     )
 }

@@ -3,7 +3,7 @@ import { Title, List, Number, Text, Date, Image, Bloc } from "../index";
 
 export const Game = props => {
     const { className } = props
-    const { title, description, platforms, genders, price, rating, developers, releaseDate, thumbnails } = props.game;
+    const { title, description, platforms, genders, price, rating, developers, releaseDate, thumbnail } = props.game;
     return <Bloc className={ className }>
         <Title className="gameTitle">{ title }</Title>
                 <Text>{ description }</Text>
@@ -13,6 +13,6 @@ export const Game = props => {
                 <Number>{ rating }</Number>
                 <List items={ developers }/>
                 <Date>{ releaseDate }</Date>
-                <Image src={ thumbnails } alt={ title }/>
+                <Image src={ thumbnail } alt={ title }/>
         </Bloc>
 }

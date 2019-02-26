@@ -7,9 +7,9 @@ import React from 'react';
 import {
     ContextConsumer,
     Main
-} from '../core/components/exercice-13/index.jsx'
+} from '../core/components/exercice-13-correction/index.jsx'
 
-export class Exercice13App extends React.Component {
+export class Exercice13CorrectionApp extends React.Component {
     render() {
 
         return (

@@ -1,7 +1,10 @@
 # React Game Store - 200
 The practical work of the Sfeir School React 200
 
-![SfeirLogo](https://github.com/SugarDarius/react-game-store-200/blob/master/src/images/sfeir-logo-small.png)
+<p align="center">
+  <img alt="SfeirLogo" src="https://github.com/SugarDarius/react-game-store-200/blob/master/src/images/sfeir-logo-small.png">
+</p>
+
 ## Table of Contents
 
 - [Getting Started](#installation)
@@ -22,26 +25,26 @@ These are the instructions to run the project.
 
 ### Installing
 
-#### Clone the project: 
+#### Clone the project:
 
 ```shell
 git clone https://github.com/SugarDarius/react-game-store-200.git
 ```
 
-#### Installing dependencies: 
+#### Installing dependencies:
 
 This project is build wih nodejs.\
-You need to install the node modules with the following command : 
+You need to install the node modules with the following command :
 
 ```shell
-npm install 
+npm install
 ```
 
 ### Running in development
 
 These are differents commands availables for the project.
 
-#### Start the project entirely  
+#### Start the project entirely
 
 ```shell
 npm run develop -- [exerice-name]
@@ -68,20 +71,20 @@ npm run develop:client:build
 ```
 
 ## Practical Work
-The practical work is serve at :  
+The practical work is serve at :
 http://localhost:4010
 
 The route **http://localhost:4010/api** is proxyfying to the **http://localhost:5010**.
 
-### Exercices 
+### Exercices
 
-Each exercices are contained in the **src/** directory.  
-For one exercice there is two directory : 
+Each exercices are contained in the **src/** directory.
+For one exercice there is two directory :
 *  **exercice-[xx]**: sources where to write code to make the exercice
 *  **exercice-[xx]-correction**: sources where is the correction of the exercice
 
-## API 
-The API of the practical work is serve at :  
+## API
+The API of the practical work is serve at :
 http://localhost:5010
 
 ### Routes :
@@ -93,7 +96,7 @@ http://localhost:5010
 * [DELETE] **/api/game/:id**: delete a game
 
 ### SwaggerUI :
-A SwaggerUI is available at :  
+A SwaggerUI is available at :
 http://localhost:5010/?url=http://localhost:5010/helpers/swagger.yaml
 
 

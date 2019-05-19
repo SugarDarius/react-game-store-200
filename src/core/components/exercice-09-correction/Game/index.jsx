@@ -51,10 +51,10 @@ export class GameStore extends React.Component {
         })
             .then(response => response.json())
             .then(gameAdded => {
-                const games = [ ...this.state.games, {
+                const games = [ {
                     _id: gameAdded._id,
                     ...game
-                } ]
+                }, ...this.state.games];
                 this.setState({ games: [ ...games ] })
             })
             .catch(error => this.setState({ error: error }))

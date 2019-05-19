@@ -12,7 +12,7 @@ export class GameLibrary extends React.Component {
     }
 
     componentDidMount() {
-        if (this.props.games.length === 0) {
+        if (this.state.games.length === 0) {
             fetch('http://localhost:5010/api/games')
                 .then(response => response.json())
                 .then(games => this.setState({ games }))

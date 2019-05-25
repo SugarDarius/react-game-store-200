@@ -6,9 +6,15 @@ export class GameLibrary extends React.Component {
     constructor(props) {
         super(props);
         this.state = {
-            games: this.props.games ? this.props.games : [],
+            games: [],
             error: ''
         }
+    }
+
+    static getDerivedStateFromProps(nextProps, prevStates) {
+        return nextProps.games && prevStates.games !== nextProps.games ?
+            {games: nextProps.games} :
+            null;
     }
 
     componentDidMount() {

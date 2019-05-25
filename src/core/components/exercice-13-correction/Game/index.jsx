@@ -1,5 +1,5 @@
 import React from 'react';
-import { Bloc, GameForm, GameLibrary, GameList } from '../index';
+import {Bloc, GameForm, GameLibrary} from '../index';
 
 export class GameStore extends React.Component {
     constructor(props) {
@@ -11,13 +11,14 @@ export class GameStore extends React.Component {
         }
     }
 
-    onInputValueChange(event) {
-        this.setState({ [ event.target.name ]: event.target.value })
+    componentDidMount() {
+        fetch('http://localhost:5010/api/games')
+            .then(response => response.json())
+            .then(games => this.setState({games}))
+            .catch(error => this.setState({error: error}))
     }
 
-    onFormSubmit(e, values) {
-        e.preventDefault()
-
+    onFormSubmit = (values) => {
         fetch('/api/game', {
             method: 'POST',
             headers: {
@@ -35,9 +36,16 @@ export class GameStore extends React.Component {
 
         return (
             <Bloc className={ className }>
-                <GameLibrary games={ this.state.games }/>
-                <GameForm handleOnChange={ this.onInputValueChange }
-                          handleOnSubmit={ this.onFormSubmit.bind(this) }/>
+                {
+                    this.state.error !== '' ?
+                        <Bloc className="fetchError">An error occurred, please come back later</Bloc> :
+                        this.state.games.length > 0 ? <GameLibrary games={this.state.games} className='gameList'/>:
+                            <Bloc className="listEmpty">No games to show :/</Bloc>
+                }
+
+                    <GameForm handleOnSubmit={values => this.onFormSubmit(values)}/>
+
+
             </Bloc>);
     }
 }

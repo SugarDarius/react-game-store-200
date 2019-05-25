@@ -1,10 +1,7 @@
 import React from 'react';
-import { Bloc, GameForm, GameLibrary } from '../index';
-import { fetchGames } from "../Actions/Game/FetchGames";
-import { addGame } from "../Actions/Game/AddGame";
-import { connect } from 'react-redux';
+import {Bloc, GameForm, GameLibrary} from '../index';
 
-class GameStoreContent extends React.Component {
+export class GameStore extends React.Component {
     constructor(props) {
         super(props);
 
@@ -15,20 +12,22 @@ class GameStoreContent extends React.Component {
     }
 
     componentDidMount() {
-        this.props.fetchGames()
-            .then(() => this.setState({ ...this.props.games }))
-            .catch(error => this.setState({ error: error }))
+        fetch('http://localhost:5010/api/games')
+            .then(response => response.json())
+            .then(games => this.setState({games}))
+            .catch(error => this.setState({error: error}))
     }
 
-    onInputValueChange(event) {
-        this.setState({ [ event.target.name ]: event.target.value })
-    }
-
-    onFormSubmit(e, values) {
-        e.preventDefault()
-
-        this.props.addGame({ ...values })
-            .then(() => this.setState({ ...this.props.game }))
+    onFormSubmit = (values) => {
+        fetch('/api/game', {
+            method: 'POST',
+            headers: {
+                'Content-Type': 'application/json'
+            },
+            body: JSON.stringify({ ...values })
+        })
+            .then(response => response.json())
+            .then(gameAdded => this.setState({ games: [ ...this.state.games, { ...gameAdded } ] }))
             .catch(error => this.setState({ error: error }))
     }
 
@@ -37,22 +36,16 @@ class GameStoreContent extends React.Component {
 
         return (
             <Bloc className={ className }>
-                <GameLibrary games={ this.props.games }/>
-                <GameForm handleOnChange={ this.onInputValueChange }
-                          handleOnSubmit={ this.onFormSubmit.bind(this) }/>
+                {
+                    this.state.error !== '' ?
+                        <Bloc className="fetchError">An error occurred, please come back later</Bloc> :
+                        this.state.games.length > 0 ? <GameLibrary games={this.state.games} className='gameList'/>:
+                            <Bloc className="listEmpty">No games to show :/</Bloc>
+                }
+
+                    <GameForm handleOnSubmit={values => this.onFormSubmit(values)}/>
+
+
             </Bloc>);
     }
 }
-
-export const GameStore = connect(
-    state => {
-        return {
-            game: state.gamesReducer.game,
-            games: state.gamesReducer.games,
-            error: state.gamesReducer.error
-        }
-    },
-    dispatch => ({
-        fetchGames: () => dispatch(fetchGames()),
-        addGame: game => dispatch(addGame(game))
-    }))(GameStoreContent);

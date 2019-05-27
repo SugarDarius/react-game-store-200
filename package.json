@@ -23,8 +23,9 @@
         "develop:api:serve": "better-npm-run develop:api:serve",
         "develop:server:serve": "better-npm-run develop:server:serve",
         "test": "npm run test:app",
-        "test:app": "better-npm-run test:app"
-    },
+        "test:app": "better-npm-run test:app",
+		"windevelop": "concurrently --kill-others \"npm run develop:api:serve\" \"npm run develop:server:serve\" \"npm run develop:client:build\""
+	},
     "betterScripts": {
         "develop:server:serve": {
             "description": "Running server",

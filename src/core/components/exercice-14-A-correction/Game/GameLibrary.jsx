@@ -6,13 +6,19 @@ export class GameLibrary extends React.Component {
     constructor(props) {
         super(props);
         this.state = {
-            games: this.props.games ? this.props.games : [],
+            games: [],
             error: ''
         }
     }
 
+    static getDerivedStateFromProps(nextProps, prevStates) {
+        return nextProps.games && prevStates.games !== nextProps.games ?
+            {games: nextProps.games} :
+            null;
+    }
+
     componentDidMount() {
-        if (this.props.games.length === 0) {
+        if (this.state.games.length === 0) {
             fetch('http://localhost:5010/api/games')
                 .then(response => response.json())
                 .then(games => this.setState({ games }))

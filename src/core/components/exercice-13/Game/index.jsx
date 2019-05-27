@@ -11,13 +11,7 @@ export class GameStore extends React.Component {
         }
     }
 
-    onInputValueChange(event) {
-        this.setState({ [ event.target.name ]: event.target.value })
-    }
-
-    onFormSubmit(e, values) {
-        e.preventDefault()
-
+    onFormSubmit(values) {
         fetch('/api/game', {
             method: 'POST',
             headers: {
@@ -48,7 +42,7 @@ export class GameStore extends React.Component {
                         <Bloc className="listEmpty">No games to show :/</Bloc>
                 }
             </Bloc>
-            <GameForm handleOnChange={ this.onInputValueChange }
+            <GameForm
                       handleOnSubmit={ this.onFormSubmit.bind(this) }/>
         </Bloc>
     }

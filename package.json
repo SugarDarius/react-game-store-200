@@ -84,7 +84,7 @@
         "foundation-sites": "^6.5.3",
         "http-proxy-middleware": "^0.19.1",
         "jest": "^24.1.0",
-        "lodash": "^4.17.11",
+        "lodash": "^4.17.13",
         "moment": "^2.24.0",
         "morgan": "^1.9.1",
         "node-sass": "^4.11.0",
